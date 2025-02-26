@@ -8,9 +8,14 @@ class Mainscreen extends StatelessWidget {
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.only(bottom: screenHeight * 0.08),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [MainTextField()],
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [MainTextField()],
+            ),
+          ],
         ),
       ),
     );

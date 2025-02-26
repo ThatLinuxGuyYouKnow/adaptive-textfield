@@ -11,13 +11,17 @@ class MainTextField extends StatelessWidget {
           color: Colors.white,
           borderRadius: BorderRadius.circular(20),
           border: Border.all(color: Colors.pink.withOpacity(0.1), width: 2),
-          boxShadow: [BoxShadow(color: Colors.pink.withOpacity(0.1))]),
+          boxShadow: [BoxShadow(color: Colors.pink.withOpacity(0.2))]),
       child: Center(
-          child: TextField(
-        decoration: InputDecoration(
-          border: UnderlineInputBorder(borderSide: BorderSide.none),
-          focusedBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.pink.withOpacity(0.1)),
+          child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 20),
+        child: TextField(
+          decoration: InputDecoration(
+            contentPadding: EdgeInsets.symmetric(horizontal: 20),
+            border: UnderlineInputBorder(borderSide: BorderSide.none),
+            focusedBorder: UnderlineInputBorder(
+              borderSide: BorderSide(color: Colors.pink.withOpacity(0.1)),
+            ),
           ),
         ),
       )),
