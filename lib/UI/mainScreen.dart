@@ -7,7 +7,7 @@ class Mainscreen extends StatelessWidget {
     final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.only(bottom: screenHeight * 0.01),
+        padding: EdgeInsets.only(bottom: screenHeight * 0.08),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [MainTextField()],
