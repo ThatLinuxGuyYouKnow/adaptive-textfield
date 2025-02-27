@@ -60,7 +60,10 @@ class EventPreviewCard extends StatelessWidget {
                     color: const Color(0xFF333333),
                   ),
                 ),
-                Icon(suggestedIcon)
+                Icon(
+                  suggestedIcon,
+                  color: Colors.pink.withOpacity(0.3),
+                )
               ],
             ),
             const SizedBox(height: 20),

@@ -19,6 +19,7 @@ Return the data in this JSON format:
 {
   "event_type": "eventType",
   "data": {
+   "icon":iconRelevantToEventYouSuggest(must be material icon ie Icons.add, Icons.meeting, Icons.remove)
     "time": "eventTime",
     "description": "eventDescription",
     "eventLocation": "location",
@@ -30,6 +31,8 @@ Return the data in this JSON format:
 
 Notes:
 - The "attendees" field can be omitted for event_type "Task"
+- For description, you should generate a rational, concise one sentence summary of the event
+- For icon, you should return a rational material IconData ie Icons.add
 - All fields except event_type may be omitted for event_type "Normal"
 - If you can determine event type but not all required data, return the event type with any available data
 - Return fields even if empty
@@ -39,6 +42,7 @@ GOOD EXAMPLE:
 {
   "event_type": "Event",
   "data": {
+    "icon":iconRelevantToEventYouSuggest
     "time": null,
     "description": "schedule a date",
     "eventLocation": null,
