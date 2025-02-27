@@ -1,5 +1,6 @@
 import 'package:adaptive_textfield/UI/widgets/previewCard.dart';
 import 'package:adaptive_textfield/UI/widgets/textfields.dart';
+import 'package:adaptive_textfield/logic/inputWorthiness.dart';
 import 'package:flutter/material.dart';
 
 class Mainscreen extends StatefulWidget {
@@ -10,10 +11,12 @@ class Mainscreen extends StatefulWidget {
 }
 
 class _MainscreenState extends State<Mainscreen> {
+  final TextEditingController messageController = TextEditingController();
+  String enteredText = "";
   Widget build(BuildContext context) {
-    final TextEditingController messageController = TextEditingController();
     final screenHeight = MediaQuery.of(context).size.height;
     bool textHasbeenEntered = messageController.text.split(" ").length >= 2;
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
@@ -29,6 +32,15 @@ class _MainscreenState extends State<Mainscreen> {
                   height: textHasbeenEntered ? 400 : 50,
                 ),
                 MainTextField(
+                  onEdit: (enteredText) {
+                    if (checkIfInputIsWorthy(enteredText)) {
+                      print('edited');
+                    } else {
+                      print('nope!');
+                      null;
+                    }
+                    ;
+                  },
                   fieldController: messageController,
                 )
               ],

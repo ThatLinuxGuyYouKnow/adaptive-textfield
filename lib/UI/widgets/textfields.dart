@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 
 class MainTextField extends StatelessWidget {
   final TextEditingController fieldController;
-  MainTextField({super.key, required this.fieldController});
+  final Function(String text) onEdit;
+  MainTextField(
+      {super.key, required this.fieldController, required this.onEdit});
   Widget build(BuildContext context) {
-    InputBorder ThisInputBorder;
     return Container(
-      height: 100,
+      height: 80,
       width: 700,
       decoration: BoxDecoration(
         color: Colors.white,
@@ -23,6 +24,9 @@ class MainTextField extends StatelessWidget {
           child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 40),
         child: TextField(
+          onChanged: (text) {
+            onEdit(text);
+          },
           decoration: InputDecoration(
             contentPadding: EdgeInsets.symmetric(horizontal: 20),
             border: UnderlineInputBorder(borderSide: BorderSide.none),
