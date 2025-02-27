@@ -26,6 +26,8 @@ Return the data in this JSON format:
   }
 }
 
+
+
 Notes:
 - The "attendees" field can be omitted for event_type "Task"
 - All fields except event_type may be omitted for event_type "Normal"
@@ -49,7 +51,7 @@ BAD EXAMPLE:
 {"event_type": "Event","data": {"time": null, "description": "schedule a date", "eventLocation": null, "attendees": ["you"]}}
 The message yu analyse starts thus:
 ''';
-String apikey = ;
+String apikey = "";
 checkInputType(String input) async {
   final requestBody = {
     "contents": [

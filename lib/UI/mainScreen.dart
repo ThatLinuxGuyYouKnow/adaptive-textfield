@@ -41,6 +41,9 @@ class _MainscreenState extends State<Mainscreen> {
                 else if (eventData.containsKey('event_type') &&
                     eventData['event_type'] == 'Task')
                   TaskPreviewCard(),
+                SizedBox(
+                  height: 50,
+                ),
                 MainTextField(
                   onEditComplete: (string) {},
                   onEdit: (value) async {

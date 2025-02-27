@@ -14,19 +14,20 @@ class MainTextField extends StatelessWidget {
       height: 60,
       width: 700,
       decoration: BoxDecoration(
-        color: const Color(0xFFF5F5F7), // Apple-like light gray background
+        color: const Color.fromARGB(
+            255, 216, 202, 202), // Apple-like light gray background
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           // Outer shadow (when not focused)
           BoxShadow(
-            color: Colors.black.withOpacity(0.1),
+            color: Colors.pink.withOpacity(0.7),
             offset: const Offset(0, 3),
             blurRadius: 6,
             spreadRadius: 0,
           ),
           // Inner subtle highlight
           BoxShadow(
-            color: Colors.white.withOpacity(0.5),
+            color: Colors.pink.withOpacity(0.5),
             offset: const Offset(0, -1),
             blurRadius: 2,
             spreadRadius: 0,
@@ -78,3 +79,5 @@ class MainTextField extends StatelessWidget {
     );
   }
 }
+
+// schedule lunch for me and grandap at
