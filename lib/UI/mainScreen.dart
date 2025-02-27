@@ -32,7 +32,12 @@ class _MainscreenState extends State<Mainscreen> {
               children: [
                 if (eventData.containsKey('event_type') &&
                     eventData['event_type'] == 'Event')
-                  EventPreviewCard()
+                  EventPreviewCard(
+                    event_name: eventData['event_type'] ?? '',
+                    event_Description: eventData['data']['description'] ?? '',
+                    event_location: eventData['data']['eventLocation'] ?? '',
+                    event_time: eventData['data']['time'] ?? '',
+                  )
                 else if (eventData.containsKey('event_type') &&
                     eventData['event_type'] == 'Task')
                   TaskPreviewCard(),
