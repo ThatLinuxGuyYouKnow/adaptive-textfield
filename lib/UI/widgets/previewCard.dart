@@ -11,6 +11,8 @@ class EventPreviewCard extends StatelessWidget {
           color: Colors.white,
           border: Border.all(color: Colors.pink.withOpacity(0.1), width: 2),
           boxShadow: [BoxShadow(color: Colors.pink.withOpacity(0.2))]),
+      child:
+          Padding(padding: EdgeInsets.symmetric(vertical: 10, horizontal: 50)),
     );
   }
 }
@@ -24,7 +26,7 @@ class TaskPreviewCard extends StatelessWidget {
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           color: Colors.white,
-          border: Border.all(color: Colors.pink.withOpacity(0.1), width: 2),
+          border: Border.all(color: Colors.green.withOpacity(0.1), width: 2),
           boxShadow: [BoxShadow(color: Colors.pink.withOpacity(0.2))]),
     );
   }
