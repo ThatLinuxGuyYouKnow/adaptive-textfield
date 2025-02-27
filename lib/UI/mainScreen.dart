@@ -13,10 +13,13 @@ class Mainscreen extends StatefulWidget {
 
 class _MainscreenState extends State<Mainscreen> {
   String enteredText = "";
-  var eventData = "";
+  Map<String, dynamic> eventData = {};
+
+  @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
     bool expandNow = checkIfInputIsWorthy(enteredText);
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
@@ -27,20 +30,26 @@ class _MainscreenState extends State<Mainscreen> {
             Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                EventPreviewCard(),
+                if (eventData.containsKey('event_type') &&
+                    eventData['event_type'] == 'Event')
+                  EventPreviewCard()
+                else if (eventData.containsKey('event_type') &&
+                    eventData['event_type'] == 'Task')
+                  TaskPreviewCard(),
                 SizedBox(
                   height: expandNow ? 400 : 50,
                 ),
                 MainTextField(
                   onEditComplete: (string) {},
-                  onEdit: (value) {
-                    if (expandNow) {
-                      eventData = checkInputType(enteredText);
-                    } else {
-                      null;
-                    }
-
+                  onEdit: (value) async {
                     enteredText = value;
+
+                    if (expandNow) {
+                      final result = await checkInputType(enteredText);
+                      setState(() {
+                        eventData = result;
+                      });
+                    }
 
                     setState(() {});
                   },
