@@ -11,12 +11,10 @@ class Mainscreen extends StatefulWidget {
 }
 
 class _MainscreenState extends State<Mainscreen> {
-  final TextEditingController messageController = TextEditingController();
   String enteredText = "";
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
-    bool textHasbeenEntered = messageController.text.split(" ").length >= 2;
-
+    bool expandNow = checkIfInputIsWorthy(enteredText);
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
@@ -29,19 +27,14 @@ class _MainscreenState extends State<Mainscreen> {
               children: [
                 EventPreviewCard(),
                 SizedBox(
-                  height: textHasbeenEntered ? 400 : 50,
+                  height: expandNow ? 400 : 50,
                 ),
                 MainTextField(
-                  onEdit: (enteredText) {
-                    if (checkIfInputIsWorthy(enteredText)) {
-                      print('edited');
-                    } else {
-                      print('nope!');
-                      null;
-                    }
-                    ;
+                  onEdit: (value) {
+                    enteredText = value;
+                    setState(() {});
+                    print(expandNow);
                   },
-                  fieldController: messageController,
                 )
               ],
             ),

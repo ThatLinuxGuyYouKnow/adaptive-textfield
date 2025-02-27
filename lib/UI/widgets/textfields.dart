@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 
 class MainTextField extends StatelessWidget {
-  final TextEditingController fieldController;
   final Function(String text) onEdit;
-  MainTextField(
-      {super.key, required this.fieldController, required this.onEdit});
+  MainTextField({super.key, required this.onEdit});
   Widget build(BuildContext context) {
     return Container(
       height: 80,
@@ -25,6 +23,7 @@ class MainTextField extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 40),
         child: TextField(
           onChanged: (text) {
+            print('text' + text);
             onEdit(text);
           },
           decoration: InputDecoration(
