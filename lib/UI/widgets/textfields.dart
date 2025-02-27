@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 class MainTextField extends StatelessWidget {
   final Function(String text) onEdit;
-  MainTextField({super.key, required this.onEdit});
+  final Function(String text)? onEditComplete;
+  MainTextField({super.key, required this.onEdit, this.onEditComplete});
   Widget build(BuildContext context) {
     return Container(
       height: 80,
@@ -22,6 +23,10 @@ class MainTextField extends StatelessWidget {
           child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 40),
         child: TextField(
+          onEditingComplete: () {
+            print('done!');
+            onEditComplete;
+          },
           onChanged: (text) {
             print('text' + text);
             onEdit(text);

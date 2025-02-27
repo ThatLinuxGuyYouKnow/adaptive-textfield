@@ -1,5 +1,6 @@
 import 'package:adaptive_textfield/UI/widgets/previewCard.dart';
 import 'package:adaptive_textfield/UI/widgets/textfields.dart';
+import 'package:adaptive_textfield/logic/checkInputType.dart';
 import 'package:adaptive_textfield/logic/inputWorthiness.dart';
 import 'package:flutter/material.dart';
 
@@ -12,6 +13,7 @@ class Mainscreen extends StatefulWidget {
 
 class _MainscreenState extends State<Mainscreen> {
   String enteredText = "";
+  var eventData = "";
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
     bool expandNow = checkIfInputIsWorthy(enteredText);
@@ -30,10 +32,17 @@ class _MainscreenState extends State<Mainscreen> {
                   height: expandNow ? 400 : 50,
                 ),
                 MainTextField(
+                  onEditComplete: (string) {},
                   onEdit: (value) {
+                    if (expandNow) {
+                      eventData = checkInputType(enteredText);
+                    } else {
+                      null;
+                    }
+
                     enteredText = value;
+
                     setState(() {});
-                    print(expandNow);
                   },
                 )
               ],
