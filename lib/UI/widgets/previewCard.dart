@@ -24,7 +24,7 @@ class EventPreviewCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 300,
+      height: 350,
       width: 700,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
@@ -63,7 +63,7 @@ class EventPreviewCard extends StatelessWidget {
                   ),
                 ),
                 Icon(
-                  Icons.table_bar,
+                  Icons.meeting_room,
                   color: Colors.pink.withOpacity(0.3),
                 )
               ],
@@ -135,14 +135,33 @@ class EventPreviewCard extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 12),
-            Text(
-              attendees ?? 'you',
-              style: GoogleFonts.ubuntu(
-                backgroundColor: Colors.grey[50],
-                fontSize: 15,
-                color: Colors.black,
-                fontWeight: FontWeight.w500,
-              ),
+            Row(
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                    color: Colors.pink.withOpacity(0.1),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Icon(
+                    Icons.contact_emergency,
+                    color: Colors.pink.shade400,
+                    size: 20,
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Text(
+                    attendees ?? 'you',
+                    style: GoogleFonts.ubuntu(
+                      backgroundColor: Colors.grey[50],
+                      fontSize: 15,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ),
+              ],
             ),
             const Spacer(),
             Row(
@@ -204,16 +223,16 @@ class TaskPreviewCard extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         color: Colors.white,
-        border: Border.all(color: Colors.pink.withOpacity(0.15), width: 1.5),
+        border: Border.all(color: Colors.grey.withOpacity(0.15), width: 1.5),
         boxShadow: [
           BoxShadow(
-            color: Colors.pink.withOpacity(0.08),
+            color: Colors.grey.withOpacity(0.08),
             offset: const Offset(0, 2),
             blurRadius: 10,
             spreadRadius: 0,
           ),
           BoxShadow(
-            color: Colors.pink.withOpacity(0.15),
+            color: Colors.grey.withOpacity(0.15),
             offset: const Offset(0, 6),
             blurRadius: 15,
             spreadRadius: -5,
@@ -238,8 +257,8 @@ class TaskPreviewCard extends StatelessWidget {
                   ),
                 ),
                 Icon(
-                  Icons.table_bar,
-                  color: Colors.pink.withOpacity(0.3),
+                  Icons.alarm,
+                  color: Colors.grey.withOpacity(0.3),
                 )
               ],
             ),
@@ -260,25 +279,22 @@ class TaskPreviewCard extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
-                    color: Colors.pink.withOpacity(0.1),
+                    color: Colors.grey.withOpacity(0.5),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Icon(
-                    Icons.location_on_rounded,
-                    color: Colors.pink.shade400,
+                    Icons.location_pin,
+                    color: Colors.black,
                     size: 20,
                   ),
                 ),
                 const SizedBox(width: 12),
-                Expanded(
-                  child: Text(
-                    task_location,
-                    style: GoogleFonts.ubuntu(
-                      fontSize: 15,
-                      color: const Color(0xFF666666),
-                    ),
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
+                Text(
+                  task_location,
+                  style: GoogleFonts.ubuntu(
+                    fontSize: 15,
+                    color: const Color(0xFF666666),
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
               ],
@@ -289,12 +305,12 @@ class TaskPreviewCard extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
-                    color: Colors.pink.withOpacity(0.1),
+                    color: Colors.grey.withOpacity(0.5),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Icon(
                     Icons.access_time_rounded,
-                    color: Colors.pink.shade400,
+                    color: Colors.black,
                     size: 20,
                   ),
                 ),
@@ -310,15 +326,6 @@ class TaskPreviewCard extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 12),
-            Text(
-              attendees ?? 'you',
-              style: GoogleFonts.ubuntu(
-                backgroundColor: Colors.grey[50],
-                fontSize: 15,
-                color: Colors.black,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
             const Spacer(),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -343,7 +350,7 @@ class TaskPreviewCard extends StatelessWidget {
                     ),
                     elevation: 0,
                   ),
-                  child: const Text("Add to Calendar"),
+                  child: const Text("Create Reminder"),
                 ),
               ],
             ),

@@ -32,15 +32,28 @@ class _MainscreenState extends State<Mainscreen> {
               children: [
                 if (eventData.containsKey('event_type') &&
                     eventData['event_type'] == 'Event')
-                  EventPreviewCard(
-                    event_name: eventData['event_type'] ?? '',
-                    event_Description: eventData['data']['description'] ?? '',
-                    event_location: eventData['data']['eventLocation'] ?? '',
-                    event_time: eventData['data']['time'] ?? '',
+                  AnimatedContainer(
+                    duration: Duration(milliseconds: 20),
+                    child: EventPreviewCard(
+                        event_name: eventData['event_type'] ?? '',
+                        event_Description:
+                            eventData['data']['description'] ?? '',
+                        event_location:
+                            eventData['data']['eventLocation'] ?? '',
+                        event_time: eventData['data']['time'] ?? '',
+                        attendees:
+                            (eventData['data']['attendees'] as List<dynamic>?)
+                                    ?.join(", ") ??
+                                ""),
                   )
                 else if (eventData.containsKey('event_type') &&
                     eventData['event_type'] == 'Task')
-                  TaskPreviewCard(),
+                  TaskPreviewCard(
+                    task_name: eventData['event_type'] ?? '',
+                    task_Description: eventData['data']['description'] ?? '',
+                    task_time: eventData['data']['time'] ?? '',
+                    task_location: eventData['data']['eventLocation'] ?? '',
+                  ),
                 SizedBox(
                   height: 50,
                 ),
@@ -68,3 +81,5 @@ class _MainscreenState extends State<Mainscreen> {
   }
 }
 // schedule a date for mira and i at unilag lagoon front at
+//remind me to call my grandpa at 9
+// remind me to wash my car in the garage once i get back at 8
