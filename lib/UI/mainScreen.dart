@@ -1,6 +1,7 @@
 import 'package:adaptive_textfield/UI/widgets/previewCard.dart';
 import 'package:adaptive_textfield/UI/widgets/textfields.dart';
 import 'package:adaptive_textfield/logic/checkInputType.dart';
+import 'package:adaptive_textfield/logic/debouncer.dart';
 import 'package:adaptive_textfield/logic/inputWorthiness.dart';
 import 'package:flutter/material.dart';
 
@@ -11,9 +12,17 @@ class Mainscreen extends StatefulWidget {
   State<Mainscreen> createState() => _MainscreenState();
 }
 
+// In Mainscreen.dart
 class _MainscreenState extends State<Mainscreen> {
   String enteredText = "";
   Map<String, dynamic> eventData = {};
+  final Debouncer _debouncer = Debouncer(delay: Duration(milliseconds: 500));
+
+  @override
+  void dispose() {
+    _debouncer.dispose(); // Clean up the debouncer
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -62,14 +71,15 @@ class _MainscreenState extends State<Mainscreen> {
                   onEdit: (value) async {
                     enteredText = value;
 
-                    if (expandNow) {
-                      final result = await checkInputType(enteredText);
-                      setState(() {
-                        eventData = result;
-                      });
-                    }
-
-                    setState(() {});
+                    // Use the debouncer to delay the API call
+                    _debouncer.call(() async {
+                      if (expandNow) {
+                        final result = await checkInputType(enteredText);
+                        setState(() {
+                          eventData = result;
+                        });
+                      }
+                    });
                   },
                 )
               ],
