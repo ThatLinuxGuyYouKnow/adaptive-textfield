@@ -31,7 +31,7 @@ Return the data in this JSON format:
 
 Notes:
 - The "attendees" field can be omitted for event_type "Task"
-- For description, you should generate a rational, concise one sentence summary of the event
+- For description, you should generate a rational, concise one sentence summary of the event(ie Date with Jenny)
 - For icon, you should return a rational material IconData ie Icons.add
 - All fields except event_type may be omitted for event_type "Normal"
 - If you can determine event type but not all required data, return the event type with any available data
@@ -55,7 +55,7 @@ BAD EXAMPLE:
 {"event_type": "Event","data": {"time": null, "description": "schedule a date", "eventLocation": null, "attendees": ["you"]}}
 The message yu analyse starts thus:
 ''';
-String apikey = "";
+String apikey = ;
 checkInputType(String input) async {
   final requestBody = {
     "contents": [

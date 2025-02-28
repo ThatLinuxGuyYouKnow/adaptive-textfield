@@ -10,6 +10,7 @@ class EventPreviewCard extends StatelessWidget {
   final String event_time;
   final String event_location;
   final IconData? suggestedIcon;
+  final String? attendees;
 
   EventPreviewCard(
       {super.key,
@@ -17,7 +18,8 @@ class EventPreviewCard extends StatelessWidget {
       this.event_Description = "",
       this.event_location = "",
       this.event_time = "",
-      this.suggestedIcon = Icons.meeting_room});
+      this.suggestedIcon = Icons.meeting_room,
+      this.attendees});
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +63,7 @@ class EventPreviewCard extends StatelessWidget {
                   ),
                 ),
                 Icon(
-                  suggestedIcon,
+                  Icons.table_bar,
                   color: Colors.pink.withOpacity(0.3),
                 )
               ],
@@ -132,6 +134,16 @@ class EventPreviewCard extends StatelessWidget {
                 ),
               ],
             ),
+            const SizedBox(height: 12),
+            Text(
+              attendees ?? 'you',
+              style: GoogleFonts.ubuntu(
+                backgroundColor: Colors.grey[50],
+                fontSize: 15,
+                color: Colors.black,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
             const Spacer(),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -181,3 +193,4 @@ class TaskPreviewCard extends StatelessWidget {
     );
   }
 }
+// schedule a date for me with Mira, we'll go to Yabatech sports center, maybe

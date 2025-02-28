@@ -14,8 +14,7 @@ class MainTextField extends StatelessWidget {
       height: 60,
       width: 700,
       decoration: BoxDecoration(
-        color: const Color.fromARGB(
-            255, 216, 202, 202), // Apple-like light gray background
+        color: const Color.fromARGB(255, 255, 254, 254),
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           // Outer shadow (when not focused)
