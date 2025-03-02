@@ -66,6 +66,9 @@ class _MainscreenState extends State<Mainscreen> {
                   height: 50,
                 ),
                 MainTextField(
+                  borderColor: eventData['event_type'] == 'Event'
+                      ? Colors.blue
+                      : Colors.pink,
                   onEditComplete: (string) {},
                   onEdit: (value) async {
                     setState(() {});
