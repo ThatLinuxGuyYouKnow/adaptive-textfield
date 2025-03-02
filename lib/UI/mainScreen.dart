@@ -12,7 +12,6 @@ class Mainscreen extends StatefulWidget {
   State<Mainscreen> createState() => _MainscreenState();
 }
 
-// In Mainscreen.dart
 class _MainscreenState extends State<Mainscreen> {
   String enteredText = "";
   Map<String, dynamic> eventData = {};
@@ -20,7 +19,7 @@ class _MainscreenState extends State<Mainscreen> {
 
   @override
   void dispose() {
-    _debouncer.dispose(); // Clean up the debouncer
+    _debouncer.dispose();
     super.dispose();
   }
 
@@ -69,17 +68,19 @@ class _MainscreenState extends State<Mainscreen> {
                 MainTextField(
                   onEditComplete: (string) {},
                   onEdit: (value) async {
+                    setState(() {});
                     enteredText = value;
+                    if (expandNow) {
+                      _debouncer.call(() async {
+                        print('debouncer hit');
 
-                    // Use the debouncer to delay the API call
-                    _debouncer.call(() async {
-                      if (expandNow) {
+                        print('debouncer 2');
                         final result = await checkInputType(enteredText);
                         setState(() {
                           eventData = result;
                         });
-                      }
-                    });
+                      });
+                    }
                   },
                 )
               ],

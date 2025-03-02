@@ -223,7 +223,7 @@ class TaskPreviewCard extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         color: Colors.white,
-        border: Border.all(color: Colors.grey.withOpacity(0.15), width: 1.5),
+        border: Border.all(color: Colors.blue.withOpacity(0.15), width: 1.5),
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.08),
@@ -232,7 +232,7 @@ class TaskPreviewCard extends StatelessWidget {
             spreadRadius: 0,
           ),
           BoxShadow(
-            color: Colors.grey.withOpacity(0.15),
+            color: Colors.blue.withOpacity(0.15),
             offset: const Offset(0, 6),
             blurRadius: 15,
             spreadRadius: -5,
@@ -258,7 +258,7 @@ class TaskPreviewCard extends StatelessWidget {
                 ),
                 Icon(
                   Icons.alarm,
-                  color: Colors.grey.withOpacity(0.3),
+                  color: Colors.blue.withOpacity(0.3),
                 )
               ],
             ),
@@ -279,12 +279,12 @@ class TaskPreviewCard extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
-                    color: Colors.grey.withOpacity(0.5),
+                    color: Colors.blue.withOpacity(0.5),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Icon(
                     Icons.location_pin,
-                    color: Colors.black,
+                    color: Colors.blue,
                     size: 20,
                   ),
                 ),
@@ -305,12 +305,12 @@ class TaskPreviewCard extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
-                    color: Colors.grey.withOpacity(0.5),
+                    color: Colors.blue.withOpacity(0.5),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Icon(
                     Icons.access_time_rounded,
-                    color: Colors.black,
+                    color: Colors.blue,
                     size: 20,
                   ),
                 ),
@@ -333,7 +333,7 @@ class TaskPreviewCard extends StatelessWidget {
                 TextButton(
                   onPressed: () {},
                   style: TextButton.styleFrom(
-                    foregroundColor: Colors.pink.shade300,
+                    foregroundColor: Colors.blue.shade300,
                   ),
                   child: const Text("Edit"),
                 ),
@@ -341,7 +341,7 @@ class TaskPreviewCard extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.pink.shade400,
+                    backgroundColor: Colors.blue.shade400,
                     foregroundColor: Colors.white,
                     padding: const EdgeInsets.symmetric(
                         horizontal: 20, vertical: 12),
