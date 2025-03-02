@@ -55,7 +55,7 @@ BAD EXAMPLE:
 {"event_type": "Event","data": {"time": null, "description": "schedule a date", "eventLocation": null, "attendees": ["you"]}}
 The message yu analyse starts thus:
 ''';
-String apikey = "";
+String apikey = "AIzaSyCJQGXkSPX-wCvB3-cz4k16aoX_84fm_TE";
 checkInputType(String input) async {
   final requestBody = {
     "contents": [

@@ -66,9 +66,11 @@ class _MainscreenState extends State<Mainscreen> {
                   height: 50,
                 ),
                 MainTextField(
-                  borderColor: eventData['event_type'] == 'Event'
-                      ? Colors.blue
-                      : Colors.pink,
+                  borderColor: eventData.isNotEmpty
+                      ? (eventData['event_type'] == 'Event'
+                          ? Colors.blue
+                          : Colors.pink)
+                      : null,
                   onEditComplete: (string) {},
                   onEdit: (value) async {
                     setState(() {});
@@ -76,8 +78,6 @@ class _MainscreenState extends State<Mainscreen> {
                     if (expandNow) {
                       _debouncer.call(() async {
                         print('debouncer hit');
-
-                        print('debouncer 2');
                         final result = await checkInputType(enteredText);
                         setState(() {
                           eventData = result;

@@ -10,7 +10,7 @@ class MainTextField extends StatelessWidget {
       {super.key,
       required this.onEdit,
       this.onEditComplete,
-      this.borderColor = Colors.pink});
+      this.borderColor = Colors.black});
 
   @override
   Widget build(BuildContext context) {
