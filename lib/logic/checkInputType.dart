@@ -37,6 +37,7 @@ Notes:
 - If you can determine event type but not all required data, return the event type with any available data
 - Return fields even if empty
 - Your response must be valid JSON with no code blocks or markdown
+- return a normal event if you are provided with no text to analyse
 
 GOOD EXAMPLE:
 {
@@ -53,9 +54,9 @@ GOOD EXAMPLE:
 BAD EXAMPLE:
 ```json
 {"event_type": "Event","data": {"time": null, "description": "schedule a date", "eventLocation": null, "attendees": ["you"]}}
-The message yu analyse starts thus:
+The message you are to analyse starts thus:
 ''';
-String apikey = "AIzaSyCJQGXkSPX-wCvB3-cz4k16aoX_84fm_TE";
+String apikey = "";
 checkInputType(String input) async {
   final requestBody = {
     "contents": [

@@ -41,7 +41,7 @@ class _MainscreenState extends State<Mainscreen> {
                 if (eventData.containsKey('event_type') &&
                     eventData['event_type'] == 'Event')
                   AnimatedContainer(
-                    duration: Duration(milliseconds: 20),
+                    duration: Duration(seconds: 2),
                     child: EventPreviewCard(
                         event_name: eventData['event_type'] ?? '',
                         event_Description:
@@ -68,9 +68,11 @@ class _MainscreenState extends State<Mainscreen> {
                 MainTextField(
                   borderColor: eventData.isNotEmpty
                       ? (eventData['event_type'] == 'Event'
-                          ? Colors.blue
-                          : Colors.pink)
-                      : null,
+                          ? Colors.pink
+                          : eventData['event_type'] == 'Task'
+                              ? Colors.blue
+                              : Colors.black)
+                      : Colors.black,
                   onEditComplete: (string) {},
                   onEdit: (value) async {
                     setState(() {});

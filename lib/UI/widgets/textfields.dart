@@ -4,7 +4,7 @@ class MainTextField extends StatelessWidget {
   final Function(String text) onEdit;
   final Function(String text)? onEditComplete;
   final FocusNode _focusNode = FocusNode();
-  final Color? borderColor;
+  final Color borderColor;
 
   MainTextField(
       {super.key,
@@ -24,14 +24,14 @@ class MainTextField extends StatelessWidget {
         boxShadow: [
           // Outer shadow (when not focused)
           BoxShadow(
-            color: borderColor!.withOpacity(0.7),
+            color: borderColor.withOpacity(0.7),
             offset: const Offset(0, 3),
             blurRadius: 6,
             spreadRadius: 0,
           ),
           // Inner subtle highlight
           BoxShadow(
-            color: borderColor!.withOpacity(0.5),
+            color: borderColor.withOpacity(0.5),
             offset: const Offset(0, -1),
             blurRadius: 2,
             spreadRadius: 0,
