@@ -16,7 +16,7 @@ A smart and adaptive text field for Flutter applications that processes natural 
 
 ## Demo
 
-![Adaptive TextField Demo](demo.mp4)
+![Adaptive TextField Demo](demo.gif)
 
 ## How It Works
 
